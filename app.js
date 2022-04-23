@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-app.use(express.json()) // Indicación para usar JSON
+app.use(express.json()) // Indicacamos que vamos a usar el formato JSON
 
 /*============   Main route   =============*/
 app.get('/', (req, res) => {
@@ -18,6 +18,8 @@ app.get('/', (req, res) => {
     endpoind que regresa una lista de personas
 
 =============================================*/
+
+// Esto es un EndoPoint
 app.get('/v1/explorers', (req, res) => {
     console.log(`API Explorers GET ALL requests ${new Date()}`);
 
