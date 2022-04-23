@@ -1,0 +1,17 @@
+{
+  "name": "project-5-express-api",
+  "version": "1.0.0",
+  "description": "Basic API with Express js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "JS",
+    "Jest"
+  ],
+  "author": "FabianGarciaXY",
+  "license": "ISC"
+}
