@@ -1,5 +1,6 @@
 // Setting up Express
 const express = require('express');
+const res = require('express/lib/response');
 const app = express();
 const port = 3000;
 app.use(express.json()) // Indicacamos que vamos a usar el formato JSON
@@ -12,7 +13,8 @@ app.get('/', (req, res) => {
 
 /*=============================================
 =                   HTTP METHODS              =
-    GET
+    GET = Regresar/obtener información
+    POST = Crear
 
     Usamos el metodo GET para crear un 
     endpoind que regresa una lista de personas
@@ -32,7 +34,21 @@ app.get('/v1/explorers', (req, res) => {
     res.status(200).json(listOfExplorers);
 });
 
+app.get('/v1/explorers/:id', (req, res) => {
+    console.log(`GET by ID Explorers V1 API || ${new Date()}`);
 
+    const explorer = { id: 1, name: 'explorer1'};
+    res.status(200).json(explorer);
+});
+
+// POST
+app.post('/v1/explorers', (req, res) => {
+    console.log(`POST explorers V1 API ${new Date()}`);
+    
+    // Aqui debe de ir la logica para guardar en la base de datos la información recibida
+    console.log(req.body) // Parametros del request
+    res.status(201).json({ msg: 'Explorer created succesfully'}) // En post se responde con 201
+})
 
 /*============  Starting server  =============*/
 app.listen(port, () => {
