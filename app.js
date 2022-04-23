@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 =                   HTTP METHODS              =
     GET = Regresar/obtener información
     POST = Crear
+    PUT = Actualizar un regitro
 
     Usamos el metodo GET para crear un 
     endpoind que regresa una lista de personas
@@ -49,6 +50,18 @@ app.post('/v1/explorers', (req, res) => {
     console.log(req.body) // Parametros del request
     res.status(201).json({ msg: 'Explorer created succesfully'}) // En post se responde con 201
 })
+
+// PUT 
+app.put('/v1/explorers/:id', (req, res) => {
+    console.log(`PUT explorers V1 API ${new Date()}`);
+    console.log(req.body) // Parametros para actualizar
+    console.log(req.params.id) //Query Params
+
+    // Aqui va la logica para actualizar un registro
+    // Se usa el codigo 200 con PUT
+    res.status(200).json({ msg: 'Explorer actualizado correctamente'})
+})
+
 
 /*============  Starting server  =============*/
 app.listen(port, () => {
