@@ -49,7 +49,7 @@ app.post('/v1/explorers', (req, res) => {
     // Aqui debe de ir la logica para guardar en la base de datos la información recibida
     console.log(req.body) // Parametros del request
     res.status(201).json({ msg: 'Explorer created succesfully'}) // En post se responde con 201
-})
+});
 
 // PUT 
 app.put('/v1/explorers/:id', (req, res) => {
@@ -60,7 +60,17 @@ app.put('/v1/explorers/:id', (req, res) => {
     // Aqui va la logica para actualizar un registro
     // Se usa el codigo 200 con PUT
     res.status(200).json({ msg: 'Explorer actualizado correctamente'})
-})
+});
+
+// DELETE
+app.delete('/v1/explorers/:id', (req, res) => {
+    console.log(`DELETE explorers v1 API ${new Date()}`);
+    console.log(req.params);
+
+    // Aqui agregar la logica/función para eliminar el registro
+    res.status(200).json({ msg: 'Explorer eliminado exitosamente'});
+});
+
 
 
 /*============  Starting server  =============*/
